@@ -21,3 +21,7 @@ A minimal Go application demonstrating Tailscale's tsnet functionality. This app
 | `TS_STATE_DIR` | Directory for persistent state | /var/lib/ts-hello-world |
 | `TS_ENABLE_SERVE` | Enable Tailscale Serve | true |
 | `TS_ENABLE_FUNNEL` | Enable public access via Funnel | false |
+
+## Screenshot
+
+![alt text](image.png)
