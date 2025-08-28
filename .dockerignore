@@ -1,0 +1,33 @@
+# Git
+.git
+.gitignore
+
+# Documentation
+README.md
+LICENSE
+docs/
+
+# Environment
+.env
+.env.example
+.env.local
+
+# Development
+.air.toml
+tmp/
+Dockerfile.dev
+docker-compose.yml
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Tailscale state (build should start fresh)
+tsnet-state/
+/var/lib/ts-hello-world/

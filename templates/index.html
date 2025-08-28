@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.Title}}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>{{.Title}}</h1>
+        
+        <h2>Your Identity</h2>
+        <div class="info-grid">
+            <div class="label">User Login:</div>
+            <div class="value">{{.UserLogin}}</div>
+            
+            <div class="label">User Name:</div>
+            <div class="value">{{.UserName}}</div>
+            
+            <div class="label">Node Name:</div>
+            <div class="value">{{.NodeName}}</div>
+            
+            <div class="label">Node ID:</div>
+            <div class="value">{{.NodeID}}</div>
+            
+            <div class="label">Remote Address:</div>
+            <div class="value">{{.RemoteAddr}}</div>
+            
+            <div class="label">Tailnet:</div>
+            <div class="value">{{.TailnetName}}</div>
+        </div>
+
+        <h2>Service Configuration</h2>
+        <div class="info-grid">
+            <div class="label">Tailscale Serve:</div>
+            <div>
+                {{if .EnableServe}}
+                    <span class="status enabled">ENABLED</span>
+                {{else}}
+                    <span class="status disabled">DISABLED</span>
+                {{end}}
+            </div>
+            
+            <div class="label">Tailscale Funnel:</div>
+            <div>
+                {{if .EnableFunnel}}
+                    <span class="status enabled">ENABLED (Public Access)</span>
+                {{else}}
+                    <span class="status disabled">DISABLED (Tailnet Only)</span>
+                {{end}}
+            </div>
+        </div>
+
+        {{if .Headers}}
+        <h2>HTTP Headers</h2>
+        <div>
+            {{range $key, $value := .Headers}}
+                <div class="header-item"><strong>{{$key}}:</strong> {{$value}}</div>
+            {{end}}
+        </div>
+        {{end}}
+
+        <h2>Available Endpoints</h2>
+        <div class="endpoints">
+            <a href="/api/status" class="endpoint-link">Demo App Status</a>
+        </div>
+
+        <h2>Tailnet Nodes</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Node Name</th>
+                    <th>Node ID</th>
+                    <th>Addresses</th>
+                    <th>Tags</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{range .Nodes}}
+                <tr>
+                    <td><strong>{{.Name}}</strong></td>
+                    <td class="node-id">{{.ID}}</td>
+                    <td class="addresses">
+                        {{range .Addresses}}{{.}}<br>{{end}}
+                    </td>
+                    <td>
+                        {{if .Tags}}
+                            {{range .Tags}}
+                                <span class="tag">{{.}}</span>
+                            {{end}}
+                        {{else}}
+                            <span class="no-tags">-</span>
+                        {{end}}
+                    </td>
+                    <td>
+                        {{if .Online}}
+                            <span class="status online">Online</span>
+                        {{else}}
+                            <span class="status offline">Offline</span>
+                        {{end}}
+                    </td>
+                </tr>
+                {{end}}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

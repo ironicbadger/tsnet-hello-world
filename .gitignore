@@ -1,0 +1,39 @@
+# Binaries
+ts-hello-world
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool
+*.out
+
+# Go workspace file
+go.work
+
+# Environment variables
+.env
+.env.local
+
+# Tailscale state (should not be committed)
+tsnet-state/
+/var/lib/ts-hello-world/
+
+# Development
+tmp/
+.air.toml.tmp
+build-errors.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db

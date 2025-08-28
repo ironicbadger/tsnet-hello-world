@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebSearch",
+      "WebSearch",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:tailscale.com)",
+      "Bash(go mod init:*)",
+      "Bash(go mod:*)",
+      "Bash(docker-compose:*)",
+      "Bash(docker compose:*)",
+      "Bash(docker logs:*)",
+      "Bash(curl:*)",
+      "Bash(docker exec:*)",
+      "Bash(echo:*)",
+      "Bash(go doc:*)",
+      "Bash(rm:*)",
+      "Bash(mkdir:*)",
+      "Bash(go build:*)",
+      "Bash(docker build:*)",
+      "WebFetch(domain:pkg.go.dev)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

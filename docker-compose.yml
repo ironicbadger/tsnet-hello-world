@@ -1,0 +1,18 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ts-hello-world
+    volumes:
+      - tsnet-state:/var/lib/ts-hello-world
+    environment:
+      - TS_HOSTNAME=${TS_HOSTNAME:-ts-hello-world}
+      - TS_STATE_DIR=/var/lib/ts-hello-world
+      - TS_AUTHKEY=${TS_AUTHKEY}
+      - TS_ENABLE_SERVE=${TS_ENABLE_SERVE:-true}
+      - TS_ENABLE_FUNNEL=${TS_ENABLE_FUNNEL:-false}
+    restart: unless-stopped
+
+volumes:
+  tsnet-state:
