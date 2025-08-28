@@ -1,1 +1,0 @@
-- use `docker compose` as `docker-compose` has been deprecated
